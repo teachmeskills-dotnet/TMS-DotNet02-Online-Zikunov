@@ -1,0 +1,40 @@
+﻿@model ZikunovServiceStationWebAppUser
+
+<form method="post" asp-action="Edit">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit Service</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Brand"></label>
+            <input asp-for="Brand" class="form-control" />
+            <span asp-validation-for="Brand" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Number"></label>
+            <input asp-for="Number" class="form-control" />
+            <span asp-validation-for="Number" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="VehicleType"></label>
+            <input asp-for="VehicleType" class="form-control" />
+            <span asp-validation-for="VehicleType" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Comment"></label>
+            <input asp-for="Comment" class="form-control" />
+            <span asp-validation-for="Comment" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+        <a asp-controller="Service" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to List
+        </a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
