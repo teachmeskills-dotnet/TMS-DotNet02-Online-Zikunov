@@ -1,0 +1,24 @@
+﻿@model ServiceCreateRequest
+
+@{
+    ViewData["Title"] = "Service Add";
+}
+
+<form class="form-account" method="post" asp-controller="Service" asp-action="Send">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <h1 class="h3 mb-3 font-weight-normal">Add Service</h1>
+
+    @Html.DropDownListFor(model => model.VehicleId, ViewBag.Vehicles as SelectList, new { @class = "form-control mb-3" })
+
+    <input type="text" class="form-control mb-3" asp-for="Comment" placeholder="Comment" required />
+    <input type="datetime-local" class="form-control mb-3" asp-for="Start" placeholder="Start" required />
+    <input type="datetime-local" class="form-control mb-3" asp-for="End" placeholder="End" required />
+
+    <p><span asp-validation-for="VehicleId"></span></p>
+    <p><span asp-validation-for="Comment"></span></p>
+    <p><span asp-validation-for="Start"></span></p>
+    <p><span asp-validation-for="End"></span></p>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Send</button>
+</form>
